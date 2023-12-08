@@ -1,19 +1,58 @@
-body {
+* {
+	margin: 0;
+	padding: 0;	
+}
+
+header {
+	color: yellow;
+	text-align: center;
+	background-color: black;
+	border: 20px black solid;
+}
+
+main {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
-	align-content: ;
-	background-color: grey;
+	justify-content: center;
+	align-content: center;
+	gap: 20px;
+	background-color: #4a4b8e;
 }
 
 .container {
 	display: flex;
 	background-color: white;
-	align-items: stretch;
-	display: inline-flex;
 	height: 600px;
 	width: 600px;
 	flex-flow: column wrap;
+	margin: 28px 0px;
+}
+
+#buttons {
+	background-color: #4a6d8e;
+	border: 1px black solid;
+	border-radius: 5px;
+	margin: 150px 0px;
+	display: flex;
+	padding: 5px;
+	align-items: center;
+	flex-direction: column;
+	gap: 10px;
+}
+
+#buttons p {
+	color: white;
+	border: 1px black solid;
+	border-radius: 5px;
+	background-color: black; 
+	padding: 0px 5px;
+}
+
+footer {
+	color: yellow;
+	text-align: center;
+	background-color: black;
+	border: 5px black solid;
 }
 
 

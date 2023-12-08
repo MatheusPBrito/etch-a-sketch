@@ -14,11 +14,13 @@ const b64 = document.querySelector("#sixtytwo");
 
 var mouseDown = 0;
 var rainbowOn = 0;
+var squares; 
 
 container.addEventListener("mousedown", () => {mouseDown = 1;});
 container.addEventListener("mouseup", () => {mouseDown = 0;});
 
 function draw(value){
+	squares = 0;
 	for (var y = 0; y < value; y++){
 		var line = document.createElement('div');
 		line.style.display = "flex";
@@ -43,6 +45,8 @@ function draw(value){
 				else {
 					this.style.backgroundColor = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ")";
 				}});
+			squares = value;
+			console.log(squares);
 			line.appendChild(div);
 		}
 		container.appendChild(line);
@@ -68,9 +72,34 @@ b16.addEventListener("click", () => { redraw(16) });
 b32.addEventListener("click", () => { redraw(32) });
 b64.addEventListener("click", () => { redraw(64) });
 
-colorPicker.addEventListener("click", () => { rainbowOn = 0;});
-eraser.addEventListener("click", () => { rainbowOn = 0; colorPicker.value = "#ffffff";});
+function rainbowOff() {
+	rainbowOn = 0;
+	rainbow.style.color = "#ffffff";
+	rainbow.style.backgroundColor = "#000000";
+}
+
+function eraserOff() {
+	eraser.style.color = "#ffffff";
+	eraser.style.backgroundColor = "#000000";
+}
+
+colorPicker.addEventListener("click", () => { rainbowOff(); eraserOff();});
+eraser.addEventListener("click", () => { 
+	rainbowOff();
+	colorPicker.value = "#ffffff";
+	eraser.style.color =  "#000000";
+	eraser.style.backgroundColor = "#ffffff";
+});
 clean.addEventListener("click", () => { redraw(squares);});
-rainbow.addEventListener("click", () => { if (rainbowOn == 0) {rainbowOn = 1;} else {rainbowOn = 0;} });
+rainbow.addEventListener("click", () => { 
+	if (rainbowOn == 0) {
+		rainbowOn = 1;
+		rainbow.style.color = "#000000";
+		rainbow.style.backgroundColor = "#ffffff";
+		eraserOff();
+	} else {
+		rainbowOff();
+	} 
+});
 
 
