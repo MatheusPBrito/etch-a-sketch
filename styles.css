@@ -1,0 +1,19 @@
+body {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-content: ;
+	background-color: grey;
+}
+
+.container {
+	display: flex;
+	background-color: white;
+	align-items: stretch;
+	display: inline-flex;
+	height: 600px;
+	width: 600px;
+	flex-flow: column wrap;
+}
+
+
